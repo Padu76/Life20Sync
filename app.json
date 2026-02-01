@@ -1,4 +1,9 @@
 {
   "name": "Life20Sync",
-  "displayName": "Life20Sync"
+  "displayName": "Life20Sync",
+  "extra": {
+    "eas": {
+      "projectId": "9650224b-d4de-4855-bca3-e4cf7b922743"
+    }
+  }
 }
