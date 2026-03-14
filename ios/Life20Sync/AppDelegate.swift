@@ -21,7 +21,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     reactNativeDelegate = delegate
     reactNativeFactory = factory
 
-    window = UIWindow(frame: UIScreen.main.bounds)
+    // Crea la window con color space sRGB esplicito per evitare crash
+    // UIGraphicsImageRenderer su iPad con display wide gamut (P3)
+    let screen = UIScreen.main
+    window = UIWindow(frame: screen.bounds)
+
+    // Forza color space sRGB per prevenire crash ColorSync/vImage su iPad
+    if let window = window {
+      window.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.96, alpha: 1.0)
+    }
 
     factory.startReactNative(
       withModuleName: "Life20Sync",
